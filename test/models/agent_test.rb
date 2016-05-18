@@ -9,8 +9,23 @@ class AgentTest < ActiveSupport::TestCase
     assert @user.valid?
   end
   
+  test "first name should be present" do
+    @user.first_name = "     "
+    assert_not @user.valid?
+  end
+  
   test "first name shouldn't be too long" do
     @user.first_name = "a" * 51
+    assert_not @user.valid?
+  end
+  
+  test "last name should be present" do
+    @user.last_name = "     "
+    assert_not @user.valid?
+  end
+  
+  test "last name shouldn't be too long" do
+    @user.last_name = "a" * 51
     assert_not @user.valid?
   end
   # test "the truth" do
