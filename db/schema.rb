@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518133219) do
+ActiveRecord::Schema.define(version: 20160518134650) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "first_name"
@@ -41,5 +41,7 @@ ActiveRecord::Schema.define(version: 20160518133219) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "warehouse_staffers", ["email"], name: "index_warehouse_staffers_on_email", unique: true
 
 end
