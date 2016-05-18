@@ -2,7 +2,7 @@ require 'test_helper'
 
 class AgentTest < ActiveSupport::TestCase
   def setup
-    @user = Agent.new(first_name: "Example", last_name: "User", email: "example.user@example.com")
+    @user = Agent.new(first_name: "Example", last_name: "User", email: "example.user@example.com", password: "foobar", password_confirmation: "foobar")
   end
   
   test "should be valid" do
@@ -63,5 +63,16 @@ class AgentTest < ActiveSupport::TestCase
     @user.save
     assert_not duplicate_user.valid?
   end
+  
+  test "password should be nonblank" do
+    @user.password = @user.password_confirmation = " " * 6
+    assert_not @user.valid?
+  end
+  
+  test "password should have a minimum length" do
+    @user.password = @user.password_confirmation = "a" * 5
+    assert_not @user.valid?
+  end
+  
 
 end
