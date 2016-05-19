@@ -1,4 +1,5 @@
 module ApplicationHelper
+
     def sidebar_links(u_t)
         if u_t == "agent"
             [{:href => "#", :icon => "home", :display => "Home"},
