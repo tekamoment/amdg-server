@@ -8,8 +8,9 @@
       </header>
       <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <!-- for loop the @user to generate these? -->
-        <% sidebar_links(@current_user).each do |link| %>
-          <%= link_to link[:href] do %>
+          <% puts "USER TYPE: " + user_type.inspect %>
+        <% sidebar_links(user_type).each do |link| %>
+          <%= link_to link[:href], :class => "mdl-navigation__link" do %>
             <%= content_tag :i, link[:icon], :class => "mdl-color-text--blue-grey-400 material-icons" %>
             <%= link[:display] %>
           <% end %>

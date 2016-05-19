@@ -1,6 +1,6 @@
 module ApplicationHelper
-    def sidebar_links(user)
-        if user.instance_of? Agent
+    def sidebar_links(u_t)
+        if u_t == "agent"
             [{:href => "#", :icon => "home", :display => "Home"},
             {:href => "#", :icon => "assignment", :display => "View batch"},
             {:href => "#", :icon => "assignment_returned", :display => "Record sales"},
@@ -8,7 +8,7 @@ module ApplicationHelper
             {:href => "#", :icon => "compare_arrows", :display => "Transfer items"},
             {:href => "#", :icon => "book", :display => "View history"},
             {:href => "#", :icon => "power_settings_new", :display => "Log out"}]
-        elsif user.instance_of? WarehouseStaffer
+        elsif u_t == "warehouse_staffer"
             [{:href => "#", :icon => "home", :display => "Home"},
             {:href => "#", :icon => "file_download", :display => "Record delivery"},
             {:href => "#", :icon => "file_upload", :display => "Issue inventory"}]
