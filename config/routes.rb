@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  #get 'deliveries/create'
+
+  #get 'inventory/create'
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
@@ -7,6 +11,9 @@ Rails.application.routes.draw do
   
 
   root 'static_pages#home'
+  
+  resources :deliveries
+  resources :inventories
 
 
   # The priority is based upon order of creation: first created -> highest priority.

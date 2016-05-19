@@ -5,7 +5,7 @@
       <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <!-- for loop the @user to generate these? -->
         <% sidebar_links(user_type).each do |link| %>
-          <%= link_to link[:href], :class => "mdl-navigation__link" do %>
+          <%= link_to link[:href], :class => "mdl-navigation__link", method: link[:method] do %>
             <%= content_tag :i, link[:icon], :class => "mdl-color-text--blue-grey-400 material-icons" %>
             <%= link[:display] %>
           <% end %>

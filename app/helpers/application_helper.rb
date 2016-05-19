@@ -11,21 +11,23 @@ module ApplicationHelper
 
     def sidebar_links(u_t)
         if u_t == "agent"
-            [{:href => "#", :icon => "home", :display => "Home"},
-            {:href => "#", :icon => "assignment", :display => "View batch"},
-            {:href => "#", :icon => "assignment_returned", :display => "Record sales"},
-            {:href => "#", :icon => "assignment_return", :display => "Return items"},
-            {:href => "#", :icon => "compare_arrows", :display => "Transfer items"},
-            {:href => "#", :icon => "book", :display => "View history"},
-            {:href => "#", :icon => "power_settings_new", :display => "Log out"}]
+            [{:href => root_path, :icon => "home", :display => "Home", :method => :get},
+            {:href => inventories_path, :icon => "assignment", :display => "View batch", :method => :get},
+            {:href => "#", :icon => "assignment_returned", :display => "Record sales", :method => :get},
+            {:href => "#", :icon => "assignment_return", :display => "Return items", :method => :get},
+            {:href => "#", :icon => "compare_arrows", :display => "Transfer items", :method => :get},
+            {:href => "#", :icon => "book", :display => "View history", :method => :get},
+            {:href => logout_path, :icon => "power_settings_new", :display => "Log out", :method => :delete}]
         elsif u_t == "warehouse_staffer"
-            [{:href => "#", :icon => "home", :display => "Home"},
-            {:href => "#", :icon => "file_download", :display => "Record delivery"},
-            {:href => "#", :icon => "file_upload", :display => "Issue inventory"}]
+            [{:href => root_path, :icon => "home", :display => "Home", :method => :get},
+            {:href => deliveries_path, :icon => "file_download", :display => "Record delivery", :method => :post},
+            {:href => inventories_path, :icon => "file_upload", :display => "Issue inventory", :method => :post},
+            {:href => logout_path, :icon => "power_settings_new", :display => "Log out", :method => :delete}]
         else
-            [{:href => "#", :icon => "home", :display => "Home"},
-            {:href => "#", :icon => "assignment", :display => "View items"},
-            {:href => "#", :icon => "assignment_ind", :display => "View agents"}]
+            [{:href => root_path, :icon => "home", :display => "Home", :method => :get},
+            {:href => "#", :icon => "assignment", :display => "View items", :method => :get},
+            {:href => "#", :icon => "assignment_ind", :display => "View agents", :method => :get},
+            {:href => logout_path, :icon => "power_settings_new", :display => "Log out", :method => :delete}]
         end
     end
 end

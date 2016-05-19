@@ -1,0 +1,91 @@
+<% provide(:title, "Record delivery") %>
+
+<div class="agent-page mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col">
+              <h3>Record sales</h3>
+            </div>
+            <div class="mdl-layout-spacer"></div>
+            <!-- Date input -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+              <input class="mdl-textfield__input" type="text" id="date" pattern="^(19|20)\d\d([- /.])(0[1-9]|1[012])\2(0[1-9]|[12][0-9]|3[01])">
+              <label class="mdl-textfield__label" for="date">Date</label>
+              <span class="mdl-textfield__error">Must follow format YYYY-MM-DD</span>
+            </div>
+            <!-- End date input -->
+
+            <!-- Time input -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+              <input class="mdl-textfield__input" type="text" id="time" pattern="^([0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]">
+              <label class="mdl-textfield__label" for="time">Time</label>
+              <span class="mdl-textfield__error">Must follow format HH:MM (24-hour time)</span>
+            </div>
+            <!-- End time input -->
+
+            <!-- Supplier input -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+              <input class="mdl-textfield__input" type="text" id="supplier">
+              <label class="mdl-textfield__label" for="supplier">Supplier</label>
+            </div>
+            <!-- End supplier input -->
+
+            <!-- Receiver input -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--6-col">
+              <input class="mdl-textfield__input" type="text" id="receiver" disabled>
+              <label class="mdl-textfield__label" for="receiver">Receiver</label>
+            </div>
+            <!-- End receiver input -->
+
+          </div>
+          
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid">
+              <!--
+              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn2">
+              <i class="material-icons">delete</i>
+            </button>
+          -->
+                <div class="mdl-card__title mdl-cell mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
+                  <h2 class="mdl-card__title-text">Item</h2>
+                </div>
+
+                <!-- Item ID input -->
+                <div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="itemID">
+                  <label class="mdl-textfield__label" for="itemID">Item ID</label>
+                  <span class="mdl-textfield__error">Input is not a number!</span>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col">
+                  <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="itemQuantity">
+                  <label class="mdl-textfield__label" for="itemQuantity">Quantity</label>
+                  <span class="mdl-textfield__error">Input is not a number!</span>
+                </div>
+
+                <div class="mdl-cell mdl-cell--4-col">
+                </div>
+
+            <!-- End Item ID input -->
+
+            <!-- Description -->
+                <div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield">
+                  <textarea class="mdl-textfield__input" type="text" rows= "2" id="itemDescription" disabled></textarea>
+                  <label class="mdl-textfield__label" for="itemDescription">Item description</label>
+                </div>
+
+            <!-- Cost -->
+                <div class="mdl-cell mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="itemCost" disabled>
+                  <label class="mdl-textfield__label" for="itemCost">Cost</label>
+                  <span class="mdl-textfield__error">Input is not a number!</span>
+                </div>
+
+            <!-- -->
+                <div class="mdl-cell mdl-cell--3-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="itemTotal" disabled>
+                  <label class="mdl-textfield__label" for="itemTotal">Total</label>
+                  <span class="mdl-textfield__error">Input is not a number!</span>
+                </div>
+              </div>
+            </div>
+          </section>
