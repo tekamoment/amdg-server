@@ -3,7 +3,7 @@ class CreateItemModels < ActiveRecord::Migration
     create_table :item_models do |t|
       t.string :description
       t.float :srp
-      t.int :quantity
+      t.integer :quantity
       t.float :cost
 
       t.timestamps null: false

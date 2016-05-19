@@ -3,11 +3,11 @@
 one:
   description: MyString
   srp: 1.5
-  quantity: 
+  quantity: 1
   cost: 1.5
 
 two:
   description: MyString
   srp: 1.5
-  quantity: 
+  quantity: 1
   cost: 1.5
