@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519194224) do
+ActiveRecord::Schema.define(version: 20160519201725) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "first_name"
@@ -27,16 +27,13 @@ ActiveRecord::Schema.define(version: 20160519194224) do
   add_index "agents", ["email"], name: "index_agents_on_email", unique: true
 
   create_table "batch_itemlists", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "itemlist_id"
     t.integer  "quantity"
     t.integer  "quantity_issued"
-    t.integer  "item_model_id"
-    t.integer  "inventory_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
-
-  add_index "batch_itemlists", ["inventory_id"], name: "index_batch_itemlists_on_inventory_id"
-  add_index "batch_itemlists", ["item_model_id"], name: "index_batch_itemlists_on_item_model_id"
 
   create_table "clients", force: :cascade do |t|
     t.string   "client_name"
@@ -56,21 +53,23 @@ ActiveRecord::Schema.define(version: 20160519194224) do
   add_index "deliveries", ["warehouse_staffer_id"], name: "index_deliveries_on_warehouse_staffer_id"
 
   create_table "delivery_itemlists", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "itemlist_id"
     t.integer  "quantity"
-    t.integer  "delivery_id"
-    t.integer  "item_model_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
-
-  add_index "delivery_itemlists", ["delivery_id"], name: "index_delivery_itemlists_on_delivery_id"
-  add_index "delivery_itemlists", ["item_model_id"], name: "index_delivery_itemlists_on_item_model_id"
 
   create_table "discounts", force: :cascade do |t|
     t.float    "discount_rate"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "client_id"
+    t.integer  "item_type_id"
   end
+
+  add_index "discounts", ["client_id"], name: "index_discounts_on_client_id"
+  add_index "discounts", ["item_type_id"], name: "index_discounts_on_item_type_id"
 
   create_table "inventories", force: :cascade do |t|
     t.datetime "date_issued"
@@ -112,15 +111,12 @@ ActiveRecord::Schema.define(version: 20160519194224) do
   add_index "managers", ["email"], name: "index_managers_on_email", unique: true
 
   create_table "sale_itemlists", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "itemlist_id"
     t.integer  "quantity"
-    t.integer  "item_model_id"
-    t.integer  "sale_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
-
-  add_index "sale_itemlists", ["item_model_id"], name: "index_sale_itemlists_on_item_model_id"
-  add_index "sale_itemlists", ["sale_id"], name: "index_sale_itemlists_on_sale_id"
 
   create_table "sales", force: :cascade do |t|
     t.datetime "date_sold"
