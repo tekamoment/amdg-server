@@ -1,6 +1,8 @@
 class Agent < ActiveRecord::Base
     has_one :client
     has_many :inventories
+    has_many :sales
+    
     
     before_save { self.email = email.downcase }
     validates :first_name, length: { minimum: 1, maximum: 50 }, presence: true
