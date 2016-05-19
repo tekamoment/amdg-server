@@ -6,5 +6,11 @@ class WarehouseStaffer < ActiveRecord::Base
     validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
     validates :password, presence: true, length: { minimum: 6 }
     
+    validate :unique_email
+    
+    def unique_email
+        self.errors.add(:email, "is already taken") if Agent.where(email: self.email).exists? || Manager.where(email: self.email).exists?
+    end
+    
     has_secure_password
 end
