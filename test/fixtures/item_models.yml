@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  srp: 1.5
+  quantity: 
+  cost: 1.5
+
+two:
+  description: MyString
+  srp: 1.5
+  quantity: 
+  cost: 1.5
