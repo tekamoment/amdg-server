@@ -1,0 +1,9 @@
+    <% if user_type == "agent" %>
+        <img src="images/user.jpg" class="demo-avatar">
+          <b><%= current_user.first_name %> <%= current_user.last_name %></b>
+         <div class="mdl-layout-spacer"></div>
+          for
+         <span>Client Company</span>
+    <% else %>
+        Unnamed
+    <% end %>
