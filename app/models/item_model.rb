@@ -8,7 +8,9 @@ class ItemModel < ActiveRecord::Base
     
     has_many :sale_itemlists
     has_many :sales, :through => :sale_itemlists
-    #has_many :transfer_itemlists
+    
+    has_many :transfer_itemlists
+    has_many :transfers, :through => :transfer_itemlists
     
     validates :description, presence: true, length: { maximum: 100 }
     validates :srp, presence: true, numericality: { greater_than: 0 }

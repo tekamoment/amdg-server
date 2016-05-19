@@ -5,6 +5,8 @@ class Inventory < ActiveRecord::Base
   has_many :batch_itemlists
   has_many :item_models, :through => :batch_itemlists
   
+  has_many :transfers
+  
   validates :agent_id, presence: true
   validates :warehouse_staffer_id, presence: true
 end
