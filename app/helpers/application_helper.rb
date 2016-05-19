@@ -1,5 +1,14 @@
 module ApplicationHelper
 
+    def full_title(page_title = '')
+        base_title = "AMDG"
+        if page_title.empty?
+            base_title
+        else
+            page_title + " | " + base_title
+        end
+    end
+
     def sidebar_links(u_t)
         if u_t == "agent"
             [{:href => "#", :icon => "home", :display => "Home"},

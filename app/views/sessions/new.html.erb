@@ -5,11 +5,9 @@
 
             <div class="mdl-card__title mdl-cell mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
               <h1 class="mdl-card__title-text">Log in</h1>
-                <% flash.each do |message_type, message| %>
-                  <h4><%= message %></h4>
-                <% end %>
             </div>
-
+            
+          
             <%= form_for(:session, url: login_path) do |f| %>
                 <% cl = "" %>
                 <% unless flash.nil? then cl = 'mdl-cell mdl-cell--12-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label' %>
@@ -28,8 +26,10 @@
                     <%= f.label :password, class: 'mdl-textfield__label' %>
                 <% end %>
             
-                <%= f.submit "Log in", class: "btn btn-primary" %>
-                
+                <%= content_tag :button, :type => :submit, :name => :commit, :class => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect' do %>
+                   Login
+                <% end %>
+
             <% end %>
             
           </div>
