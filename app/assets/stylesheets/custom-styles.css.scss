@@ -1,0 +1,34 @@
+//colors
+$black_54: rgba(0, 0, 0, 0.54);
+$white_56: rgba(255, 255, 255, 0.56);
+$color_robins_egg_blue_approx: #00bcd4;
+$color_limed_spruce_approx: #37474f;
+$color_inch_worm_approx: #acec00;
+$color_fuchsia_pink_approx: #ba65c9;
+$color_violet_red_approx: #ef3c79;
+$color_cerulean_approx: #00b9d8;
+$color_razzmatazz_approx: #d9006e;
+$white: white;
+$white_89: rgba(255, 255, 255, 0.89);
+
+//fonts
+$font_0: Roboto;
+$font_1: Helvetica;
+$font_2: sans-serif;
+
+//urls
+$url_0: url(images/dog.png);
+
+html {
+	font-family: $font_0, $font_1, $font_2;
+}
+body {
+	font-family: $font_0, $font_1, $font_2;
+}
+
+.agent-page {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+    -ms-grid-row-align: center;
+          align-items: center;
+}
