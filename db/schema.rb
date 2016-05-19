@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519181031) do
+ActiveRecord::Schema.define(version: 20160519194224) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "first_name"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20160519181031) do
 
   add_index "agents", ["client_id"], name: "index_agents_on_client_id"
   add_index "agents", ["email"], name: "index_agents_on_email", unique: true
+
+  create_table "batch_itemlists", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "quantity_issued"
+    t.integer  "item_model_id"
+    t.integer  "inventory_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "batch_itemlists", ["inventory_id"], name: "index_batch_itemlists_on_inventory_id"
+  add_index "batch_itemlists", ["item_model_id"], name: "index_batch_itemlists_on_item_model_id"
 
   create_table "clients", force: :cascade do |t|
     t.string   "client_name"
@@ -98,6 +110,17 @@ ActiveRecord::Schema.define(version: 20160519181031) do
   end
 
   add_index "managers", ["email"], name: "index_managers_on_email", unique: true
+
+  create_table "sale_itemlists", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "item_model_id"
+    t.integer  "sale_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "sale_itemlists", ["item_model_id"], name: "index_sale_itemlists_on_item_model_id"
+  add_index "sale_itemlists", ["sale_id"], name: "index_sale_itemlists_on_sale_id"
 
   create_table "sales", force: :cascade do |t|
     t.datetime "date_sold"
