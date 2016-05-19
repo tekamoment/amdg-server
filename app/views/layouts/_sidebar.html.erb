@@ -1,14 +1,9 @@
 <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
       <header class="demo-drawer-header">
-        <img src="images/user.jpg" class="demo-avatar">
-          Staffer Name
-          <div class="mdl-layout-spacer"></div>
-          for
-          <span>Client Company</span>
+        <%= render 'layouts/sidebar_header' %>
       </header>
       <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <!-- for loop the @user to generate these? -->
-          <% puts "USER TYPE: " + user_type.inspect %>
         <% sidebar_links(user_type).each do |link| %>
           <%= link_to link[:href], :class => "mdl-navigation__link" do %>
             <%= content_tag :i, link[:icon], :class => "mdl-color-text--blue-grey-400 material-icons" %>
