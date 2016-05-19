@@ -2,7 +2,9 @@ require 'test_helper'
 
 class AgentTest < ActiveSupport::TestCase
   def setup
-    @user = Agent.new(first_name: "Example", last_name: "User", email: "example.user@example.com", password: "foobar", password_confirmation: "foobar")
+    @client = clients(:galliard)
+    @user = Agent.new(first_name: "Example", last_name: "User", email: "example.user@example.com", password: "foobar", password_confirmation: "foobar",
+            client_id: @client.id)
   end
   
   test "should be valid" do
@@ -74,5 +76,9 @@ class AgentTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
   
-
+  test "client should be present" do
+    @user.client_id = nil
+    assert_not @user.valid?
+  end
+  
 end
