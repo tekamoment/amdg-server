@@ -1,7 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  itemtype: MyString
+camera:
+  itemtype: Camera
 
-two:
-  itemtype: MyString

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519152710) do
+ActiveRecord::Schema.define(version: 20160519160222) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "first_name"
@@ -52,9 +52,12 @@ ActiveRecord::Schema.define(version: 20160519152710) do
     t.float    "srp"
     t.integer  "quantity"
     t.float    "cost"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "item_type_id"
   end
+
+  add_index "item_models", ["item_type_id"], name: "index_item_models_on_item_type_id"
 
   create_table "item_types", force: :cascade do |t|
     t.string   "itemtype"

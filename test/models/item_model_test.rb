@@ -2,7 +2,8 @@ require 'test_helper'
 
 class ItemModelTest < ActiveSupport::TestCase
   def setup
-    @model = ItemModel.new(description: "Canon EOS 7D", srp: 50000.00, quantity: 1, cost: 40000.00)
+    @item_type = item_types(:camera)
+    @model = ItemModel.new(description: "Canon EOS 7D", srp: 50000.00, quantity: 1, cost: 40000.00, item_type_id: @item_type.id)
   end
   
   test "should be valid" do
@@ -56,6 +57,11 @@ class ItemModelTest < ActiveSupport::TestCase
   
   test "quantity should not be negative" do
     @model.quantity = -1
+    assert_not @model.valid?
+  end
+  
+  test "item type should be present" do
+    @model.item_type_id = nil
     assert_not @model.valid?
   end
   # test "the truth" do
