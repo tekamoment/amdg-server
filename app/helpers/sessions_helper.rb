@@ -1,13 +1,7 @@
 module SessionsHelper
-    def log_in(user)
+    def log_in(user, user_type)
         session[:user_id] = user.id
-        #if user.instance_of? Agent
-        #    session[:user_type] = :agent
-        #elsif user.instance_of? WarehouseStaffer
-        #    session[:user_type] = :warehouse_staffer
-        #else
-        #    session[:user_type] = :manager
-        #end
+        session[:user_type] = user_type
     end
     
     def current_user
@@ -17,15 +11,16 @@ module SessionsHelper
     end
     
     def user_type
-        if Manager.find_by(id: session[:user_id]) != nil
-            @user_type = :manager
-        elsif WarehouseStaffer.find_by(id: session[:user_id]) != nil
-            @user_type = :warehouse_staffer
-        elsif Agent.find_by(id: session[:user_id]) != nil
-            @user_type = :agent
-        else
-            @user_type = nil
-        end
+        #if Manager.find_by(id: session[:user_id]) != nil
+        #    @user_type = :manager
+        #elsif WarehouseStaffer.find_by(id: session[:user_id]) != nil
+        #    @user_type = :warehouse_staffer
+        #elsif Agent.find_by(id: session[:user_id]) != nil
+        #    @user_type = :agent
+        #else
+        #    @user_type = nil
+        #end
+        @user_type ||= session[:user_type]
     end
     
     def logged_in?

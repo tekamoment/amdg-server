@@ -6,17 +6,21 @@ class SessionsController < ApplicationController
   
   def create
     temp_user = Manager.find_by(email: params[:session][:email].downcase)
+    temp_type = :manager
     if !temp_user
       temp_user = Agent.find_by(email: params[:session][:email].downcase)
+      temp_type = :agent
       if !temp_user
         temp_user = WarehouseStaffer.find_by(email: params[:session][:email].downcase)
+        temp_type = :warehouse_staffer
       end
     end
     
     user = temp_user
+    user_type = temp_type
     if user && user.authenticate(params[:session][:password])
       # Log in!
-      log_in user
+      log_in(user, user_type)
       redirect_to root_path
     else
       puts 'login unsuccessful'
