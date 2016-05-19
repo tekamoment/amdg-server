@@ -1,1 +1,6 @@
 # Empty
+michael:
+    first_name: Michael
+    last_name: Johnson
+    email: michael.johnson@amdg.com
+    password_digest: <%= WarehouseStaffer.digest('password') %>

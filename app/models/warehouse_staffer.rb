@@ -1,4 +1,6 @@
 class WarehouseStaffer < ActiveRecord::Base
+    has_many :deliveries 
+    
     before_save { self.email = email.downcase }
     validates :first_name, presence: true, length: { maximum: 50 }
     validates :last_name, presence: true, length: { maximum: 50 }
@@ -13,4 +15,10 @@ class WarehouseStaffer < ActiveRecord::Base
     end
     
     has_secure_password
+    
+    def WarehouseStaffer.digest(string)
+        cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+        BCrypt::Password.create(string, cost: cost)
+    end
 end
