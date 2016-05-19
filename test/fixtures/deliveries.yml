@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  warehouse_staffer_id: warehouse_staffers(:michael)
   date_delivered: 2016-05-19 06:37:15
+  supplier_id: suppliers(:megacorp)
 
 two:
   date_delivered: 2016-05-19 06:37:15

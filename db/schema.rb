@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519175419) do
+ActiveRecord::Schema.define(version: 20160519181031) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "first_name"
@@ -42,6 +42,17 @@ ActiveRecord::Schema.define(version: 20160519175419) do
 
   add_index "deliveries", ["supplier_id"], name: "index_deliveries_on_supplier_id"
   add_index "deliveries", ["warehouse_staffer_id"], name: "index_deliveries_on_warehouse_staffer_id"
+
+  create_table "delivery_itemlists", force: :cascade do |t|
+    t.integer  "quantity"
+    t.integer  "delivery_id"
+    t.integer  "item_model_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "delivery_itemlists", ["delivery_id"], name: "index_delivery_itemlists_on_delivery_id"
+  add_index "delivery_itemlists", ["item_model_id"], name: "index_delivery_itemlists_on_item_model_id"
 
   create_table "discounts", force: :cascade do |t|
     t.float    "discount_rate"

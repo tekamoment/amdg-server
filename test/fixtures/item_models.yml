@@ -1,13 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  description: MyString
-  srp: 1.5
+  description: "Canon EOS 7D"
+  srp: 50000.00
   quantity: 1
-  cost: 1.5
-
-two:
-  description: MyString
-  srp: 1.5
-  quantity: 1
-  cost: 1.5
+  cost: 40000.00
+  item_type_id: item_types(:camera)
