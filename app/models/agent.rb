@@ -1,5 +1,6 @@
 class Agent < ActiveRecord::Base
     has_one :client
+    has_many :inventories
     
     before_save { self.email = email.downcase }
     validates :first_name, length: { minimum: 1, maximum: 50 }, presence: true
@@ -19,4 +20,10 @@ class Agent < ActiveRecord::Base
 
    has_secure_password 
    
+   
+    def Agent.digest(string)
+        cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+        BCrypt::Password.create(string, cost: cost)
+    end
 end

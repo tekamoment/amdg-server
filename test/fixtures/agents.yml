@@ -1,1 +1,6 @@
 #Empty
+james:
+    first_name: James
+    last_name: Porterson
+    email: james.porterson@amdg.com
+    password_digest: <%= Agent.digest('password') %>
