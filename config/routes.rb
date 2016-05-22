@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
   
-  resources :deliveries
+  resources :deliveries do
+    get :autocomplete_supplier_supplier_name, :on => :collection
+  end
   resources :inventories
 
 

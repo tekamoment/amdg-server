@@ -3,7 +3,7 @@
           <b><%= current_user.first_name %> <%= current_user.last_name %></b>
          <div class="mdl-layout-spacer"></div>
           for
-         <span>Client Company</span>
+         <span><%= current_user.client.client_name %></span>
     <% elsif user_type == "warehouse_staffer" %>
         <b><%= current_user.first_name %> <%= current_user.last_name %></b>
         <span>Warehouse Staffer</span>

@@ -1,5 +1,7 @@
 class DeliveriesController < ApplicationController
   
+  autocomplete :supplier, :supplier_name, :extra_data => [:id]
+  
   before_filter :require_warehouse_staffer, :only => [:create]
   before_filter :require_non_warehouse_staffer, :only => [:show]
   
@@ -17,6 +19,7 @@ class DeliveriesController < ApplicationController
   
   
   def create
-    @delivery = Delivery.new
+    date_delivered = params[:date_delivered]
+    time_delivered = params[:time_delivered]
   end
 end
